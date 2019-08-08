@@ -1,14 +1,11 @@
 import React from "react";
-import { createBrowserHistory } from "history";
-import { Router, Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 
 import Header from "components/Header/Header.jsx";
 import Footer from "components/Footer/Footer.jsx";
 import Sidebar from "components/Sidebar/Sidebar.jsx";
 
 import appRoutes from "routes/app.jsx";
-
-const hist = createBrowserHistory();
 
 class App extends React.Component {
   render() {
@@ -17,7 +14,7 @@ class App extends React.Component {
         <Sidebar {...this.props} />
         <div className="main-panel">
           <Header {...this.props} />
-          <Router history={hist}>
+          <div className="content">
             <Switch>
               {appRoutes.map((prop, key) => {
                 if (prop.redirect)
@@ -31,7 +28,7 @@ class App extends React.Component {
                 );
               })}
             </Switch>
-          </Router>
+          </div>
           <Footer {...this.props} />
         </div>
       </div>
