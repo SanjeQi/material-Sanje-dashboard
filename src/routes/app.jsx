@@ -6,6 +6,8 @@ import Icons from "views/Icons/Icons.jsx";
 import Maps from "views/Maps/Maps.jsx";
 import NotificationsPage from "views/Notifications/Notifications.jsx";
 
+import Notify from "views/Notify/Notify.jsx";
+
 import {
   Dashboard,
   Person,
@@ -65,6 +67,13 @@ const appRoutes = [
     navbarName: "Notifications",
     icon: Notifications,
     component: NotificationsPage
+  },
+  {
+    path: "/notify",
+    sidebarName: "Notify",
+    navbarName: "Notify",
+    icon: Notifications,
+    component: Notify
   },
   { redirect: true, path: "/", to: "/dashboard" }
 ];
