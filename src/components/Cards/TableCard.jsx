@@ -74,7 +74,12 @@ class TableCard extends React.Component {
   }
   render() {
     return (
-      <Card className={this.props.classes.card}>
+      <Card
+        className={
+          this.props.classes.card +
+          (this.props.plainCard ? " " + this.props.classes.cardPlain : "")
+        }
+      >
         <CardHeader
           classes={{
             root: this.props.classes.cardHeader + this.state.headerColor,
@@ -132,6 +137,7 @@ class TableCard extends React.Component {
 }
 
 TableCard.propTypes = {
+  plainCard: PropTypes.bool,
   classes: PropTypes.object.isRequired,
   headerColor: PropTypes.oneOf(["orange", "green", "red", "blue", "purple"]),
   cardTitle: PropTypes.node,
