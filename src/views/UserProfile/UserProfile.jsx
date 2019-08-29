@@ -1,30 +1,18 @@
 import React from "react";
-import PropTypes from "prop-types";
 import {
-  withStyles,
   Grid,
   Card,
   CardHeader,
   CardContent,
   Input,
   FormControl,
-  InputLabel,
-  CardMedia,
-  Button,
-  Typography
+  InputLabel
 } from "material-ui";
 
-import avatar from "assets/img/faces/marc.jpg";
-
-const styles = {
-  media: {
-    height: 200
-  }
-};
+import ProfileCard from "components/Cards/ProfileCard";
 
 class UserProfile extends React.Component {
   render() {
-    const { classes } = this.props;
     return (
       <div>
         <Grid container>
@@ -117,24 +105,7 @@ class UserProfile extends React.Component {
             </Card>
           </Grid>
           <Grid item md={4}>
-            <Card>
-              <CardMedia image={avatar} title="..." className={classes.media} />
-              <CardHeader
-                subheader={"CEO / CO-FOUNDER"}
-                title={"Alec Thompson"}
-              />
-              <CardContent>
-                <Typography component="p">
-                  Don't be scared of the truth because we need to restart the
-                  human foundation in truth And I love you like Kanye loves
-                  Kanye I love Rick Owens’ bed design but the back is...
-                </Typography>
-                <Button raised color="primary">
-                  Follow
-                </Button>
-              </CardContent>
-              {/* <a href="#pablo" class="btn btn-primary btn-round">Follow</a> */}
-            </Card>
+            <ProfileCard />
           </Grid>
         </Grid>
       </div>
@@ -142,8 +113,4 @@ class UserProfile extends React.Component {
   }
 }
 
-UserProfile.propTypes = {
-  classes: PropTypes.object.isRequired
-};
-
-export default withStyles(styles)(UserProfile);
+export default UserProfile;
