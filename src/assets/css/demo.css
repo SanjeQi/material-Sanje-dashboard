@@ -38,3 +38,8 @@
   /* font-size: 1.3rem; */
   line-height: 1;
 }
+
+body {
+  background-color: #eeeeee;
+  color: #3c4858;
+}
