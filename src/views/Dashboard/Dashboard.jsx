@@ -1,24 +1,5 @@
 import React from "react";
-import {
-  withStyles,
-  Card,
-  CardContent,
-  CardHeader,
-  CardActions,
-  Grid,
-  Typography,
-  AppBar,
-  Tabs,
-  Tab,
-  Checkbox,
-  IconButton,
-  Table,
-  TableBody,
-  TableCell,
-  TableRow,
-  TableHead,
-  Toolbar
-} from "material-ui";
+import { withStyles, Grid } from "material-ui";
 import {
   ContentCopy,
   Store,
@@ -29,20 +10,16 @@ import {
   Update,
   ArrowUpward,
   AccessTime,
-  Edit,
-  Close,
-  BugReport,
-  Cloud,
-  Code,
   Accessibility
 } from "material-ui-icons";
 import PropTypes from "prop-types";
-import SwipeableViews from "react-swipeable-views";
 import ChartistGraph from "react-chartist";
 
 import StatsCard from "components/Cards/StatsCard";
 import ChartCard from "components/Cards/ChartCard";
-import TasksCard from "./TasksCard";
+import TasksCard from "components/Cards/TasksCard";
+import RegularCard from "components/Cards/RegularCard";
+import Table from "components/Table/Table";
 
 import {
   dailySalesChart,
@@ -50,83 +27,11 @@ import {
   completedTasksChart
 } from "variables/charts";
 
-var bugs = [
-  'Sign contract for "What are conference organizers afraid of?"',
-  "Lines From Great Russian Literature? Or E-mails From My Boss?",
-  "Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit",
-  "Create 4 Invisible User Experiences you Never Knew About"
-];
-var website = [
-  "Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit",
-  'Sign contract for "What are conference organizers afraid of?"'
-];
-var server = [
-  "Lines From Great Russian Literature? Or E-mails From My Boss?",
-  "Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit",
-  'Sign contract for "What are conference organizers afraid of?"'
-];
-
-var styles = {
-  successText: {
-    color: "#4caf50"
-  },
-  upArrowCardCategory: {
-    width: 14,
-    height: 14
-  }
-};
+import { dashboardStyle } from "variables/styles";
 
 class Dashboard extends React.Component {
   state = {
-    value: 0,
-    checkedBugs: [0, 3],
-    checkedWebsite: [0],
-    checkedServer: [1]
-  };
-  handleServerToggle = value => () => {
-    const { checkedServer } = this.state;
-    const currentIndex = checkedServer.indexOf(value);
-    const newChecked = [...checkedServer];
-
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
-    }
-
-    this.setState({
-      checkedServer: newChecked
-    });
-  };
-  handleWebsiteToggle = value => () => {
-    const { checkedWebsite } = this.state;
-    const currentIndex = checkedWebsite.indexOf(value);
-    const newChecked = [...checkedWebsite];
-
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
-    }
-
-    this.setState({
-      checkedWebsite: newChecked
-    });
-  };
-  handleBugsToggle = value => () => {
-    const { checkedBugs } = this.state;
-    const currentIndex = checkedBugs.indexOf(value);
-    const newChecked = [...checkedBugs];
-
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
-    }
-
-    this.setState({
-      checkedBugs: newChecked
-    });
+    value: 0
   };
   handleChange = (event, value) => {
     this.setState({ value });
@@ -236,186 +141,27 @@ class Dashboard extends React.Component {
           />
         </Grid>
         <Grid container>
-          <TasksCard />
           <Grid item lg={6}>
-            <Card>
-              <CardHeader
-                title="Tasks:"
-                action={
-                  <Tabs
-                    value={this.state.value}
-                    onChange={this.handleChange}
-                    indicatorColor="primary"
-                    textColor="primary"
-                    fullWidth
-                  >
-                    <Tab
-                      label={
-                        <div>
-                          <BugReport /> Bugs
-                        </div>
-                      }
-                    />
-                    <Tab
-                      label={
-                        <div>
-                          <Code /> Website
-                        </div>
-                      }
-                    />
-                    <Tab
-                      label={
-                        <div>
-                          <Cloud /> Server
-                        </div>
-                      }
-                    />
-                  </Tabs>
-                }
-              />
-              <CardContent>
-                <SwipeableViews
-                  axis={"x"}
-                  index={this.state.value}
-                  onChangeIndex={this.handleChangeIndex}
-                >
-                  <Typography component="div">
-                    <Table>
-                      <TableBody>
-                        {[0, 1, 2, 3].map(value => (
-                          <TableRow key={value}>
-                            <TableCell>
-                              <Checkbox
-                                checked={
-                                  this.state.checkedBugs.indexOf(value) !== -1
-                                }
-                                tabIndex={-1}
-                                disableRipple
-                                onClick={this.handleBugsToggle(value)}
-                              />
-                            </TableCell>
-                            <TableCell>{bugs[value]}</TableCell>
-                            <TableCell>
-                              <IconButton aria-label="Edit">
-                                <Edit />
-                              </IconButton>
-                              <IconButton aria-label="Close">
-                                <Close />
-                              </IconButton>
-                            </TableCell>
-                          </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  </Typography>
-                  <Typography component="div">
-                    <Table>
-                      <TableBody>
-                        {[0, 1].map(value => (
-                          <TableRow key={value}>
-                            <TableCell>
-                              <Checkbox
-                                checked={
-                                  this.state.checkedWebsite.indexOf(value) !==
-                                  -1
-                                }
-                                tabIndex={-1}
-                                disableRipple
-                                onClick={this.handleWebsiteToggle(value)}
-                              />
-                            </TableCell>
-                            <TableCell>{website[value]}</TableCell>
-                            <TableCell>
-                              <IconButton aria-label="Edit">
-                                <Edit />
-                              </IconButton>
-                              <IconButton aria-label="Close">
-                                <Close />
-                              </IconButton>
-                            </TableCell>
-                          </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  </Typography>
-                  <Typography component="div">
-                    <Table>
-                      <TableBody>
-                        {[0, 1, 2].map(value => (
-                          <TableRow key={value}>
-                            <TableCell>
-                              <Checkbox
-                                checked={
-                                  this.state.checkedServer.indexOf(value) !== -1
-                                }
-                                tabIndex={-1}
-                                disableRipple
-                                onClick={this.handleServerToggle(value)}
-                              />
-                            </TableCell>
-                            <TableCell>{server[value]}</TableCell>
-                            <TableCell>
-                              <IconButton aria-label="Edit">
-                                <Edit />
-                              </IconButton>
-                              <IconButton aria-label="Close">
-                                <Close />
-                              </IconButton>
-                            </TableCell>
-                          </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  </Typography>
-                </SwipeableViews>
-              </CardContent>
-            </Card>
+            <TasksCard />
           </Grid>
           <Grid item lg={6}>
-            <Card>
-              <CardHeader
-                title={"Employees Stats"}
-                subheader={"New employees on 15th September, 2016"}
-              />
-              <CardContent>
-                <Table>
-                  <TableHead>
-                    <TableRow>
-                      <TableCell>ID</TableCell>
-                      <TableCell>Name</TableCell>
-                      <TableCell>Salary</TableCell>
-                      <TableCell>Country</TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    <TableRow>
-                      <TableCell>1</TableCell>
-                      <TableCell>Dakota Rice</TableCell>
-                      <TableCell>$36,738</TableCell>
-                      <TableCell>Niger</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>2</TableCell>
-                      <TableCell>Minerva Hooper</TableCell>
-                      <TableCell>$23,789</TableCell>
-                      <TableCell>Curaçao</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>3</TableCell>
-                      <TableCell>Sage Rodriguez</TableCell>
-                      <TableCell>$56,142</TableCell>
-                      <TableCell>Netherlands</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>4</TableCell>
-                      <TableCell>Philip Chaney</TableCell>
-                      <TableCell>$38,735</TableCell>
-                      <TableCell>Korea, South</TableCell>
-                    </TableRow>
-                  </TableBody>
-                </Table>
-              </CardContent>
-            </Card>
+            <RegularCard
+              headerColor="orange"
+              cardTitle="Employees Stats"
+              cardSubtitle="New employees on 15th September, 2016"
+              content={
+                <Table
+                  tableHeaderColor="warning"
+                  tableHead={["ID", "Name", "Salary", "Country"]}
+                  tableData={[
+                    ["1", "Dakota Rice", "$36,738", "Niger"],
+                    ["2", "Minerva Hooper", "$23,789", "Curaçao"],
+                    ["3", "Sage Rodriguez", "$56,142", "Netherlands"],
+                    ["4", "Philip Chaney", "$38,735", "Korea, South"]
+                  ]}
+                />
+              }
+            />
           </Grid>
         </Grid>
       </div>
@@ -427,4 +173,4 @@ Dashboard.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Dashboard);
+export default withStyles(dashboardStyle)(Dashboard);
