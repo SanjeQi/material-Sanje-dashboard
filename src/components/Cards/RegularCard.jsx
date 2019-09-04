@@ -1,5 +1,11 @@
 import React from "react";
-import { withStyles, Card, CardContent, CardHeader } from "material-ui";
+import {
+  withStyles,
+  Card,
+  CardContent,
+  CardHeader,
+  CardActions
+} from "material-ui";
 import PropTypes from "prop-types";
 
 import { regularCardStyle } from "variables/styles";
@@ -53,6 +59,9 @@ class RegularCard extends React.Component {
           subheader={this.props.cardSubtitle}
         />
         <CardContent>{this.props.content}</CardContent>
+        <CardActions className={this.props.classes.cardActions}>
+          {this.props.footer}
+        </CardActions>
       </Card>
     );
   }
@@ -64,17 +73,8 @@ RegularCard.propTypes = {
   headerColor: PropTypes.oneOf(["orange", "green", "red", "blue", "purple"]),
   cardTitle: PropTypes.node,
   cardSubtitle: PropTypes.node,
-  tableHeaderColor: PropTypes.oneOf([
-    "warning",
-    "primary",
-    "danger",
-    "success",
-    "info",
-    "rose",
-    "gray"
-  ]),
-  tableHead: PropTypes.arrayOf(PropTypes.string),
-  tableData: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string))
+  content: PropTypes.node,
+  footer: PropTypes.node
 };
 
 export default withStyles(regularCardStyle)(RegularCard);
