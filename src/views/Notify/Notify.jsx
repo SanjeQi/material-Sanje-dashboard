@@ -1,110 +1,99 @@
 import React from "react";
-// import {
-//     Card, CardHeader, CardContent, Grid, Snackbar, SnackbarContent, IconButton, Typography, Button
-// } from 'material-ui';
-import ChartistGraph from "react-chartist";
-import { Close, AddAlert } from "material-ui-icons";
-var Chartist = require("chartist");
-var delays = 80,
-  durations = 500;
-const usersBehaviorChart = {
-  data: {
-    labels: [
-      "9:00AM",
-      "12:00AM",
-      "3:00PM",
-      "6:00PM",
-      "9:00PM",
-      "12:00PM",
-      "3:00AM",
-      "6:00AM"
-    ],
-    series: [[287, 385, 490, 492, 554, 586, 698, 695, 752]]
-  },
-  options: {
-    low: 0,
-    high: 800,
-    chartPadding: 0,
-    showArea: true,
-    height: "245px",
-    axisX: {
-      showGrid: true
-    },
-    axisY: {
-      showGrid: true
-    },
-    lineSmooth: Chartist.Interpolation.simple({
-      divisor: 6
-    }),
-    showLine: false,
-    showPoint: true,
-    fullWidth: true
-  },
-  responsiveOptions: [
-    [
-      "screen and (max-width: 640px)",
-      {
-        axisX: {
-          labelInterpolationFnc: function(value) {
-            return value[0];
-          }
-        }
-      }
-    ]
-  ],
-  // for animation
-  animation: {
-    draw: function(data) {
-      if (data.type === "line" || data.type === "area") {
-        data.element.animate({
-          d: {
-            begin: 600,
-            dur: 700,
-            from: data.path
-              .clone()
-              .scale(1, 0)
-              .translate(0, data.chartRect.height())
-              .stringify(),
-            to: data.path.clone().stringify(),
-            easing: Chartist.Svg.Easing.easeOutQuint
-          }
-        });
-      } else if (data.type === "point") {
-        data.element.animate({
-          opacity: {
-            begin: (data.index + 1) * delays,
-            dur: durations,
-            from: 0,
-            to: 1,
-            easing: "ease"
-          }
-        });
-      }
-    }
+import PropTypes from "prop-types";
+import { withStyles } from "material-ui/styles";
+import Grid from "material-ui/Grid";
+import Button from "material-ui/Button";
+import Tooltip from "material-ui/Tooltip";
+
+const styles = {
+  root: {
+    width: 500
   }
 };
 
-var simpleLineChartData = {
-  labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-  series: [[12, 9, 7, 8, 5], [2, 1, 3.5, 7, 3], [1, 3, 4, 5, 6]]
-};
-
-class Notifications extends React.Component {
-  render() {
-    return (
-      // <ChartistGraph
-      //     className="ct-chart"
-      //     data={usersBehaviorChart.data}
-      //     type="Line"
-      //     options={usersBehaviorChart.options}
-      //     responsiveOptions={usersBehaviorChart.responsiveOptions}
-      //     listener={
-      //         usersBehaviorChart.animation
-      //     }
-      // />
-      <ChartistGraph data={simpleLineChartData} type={"Line"} />
-    );
-  }
+function PositionedTooltips(props) {
+  const { classes } = props;
+  return (
+    <div className={classes.root}>
+      <Grid container justify="center">
+        <Grid item>
+          <Tooltip id="tooltip-top-start" title="Add" placement="top-start">
+            <Button>top-start</Button>
+          </Tooltip>
+          <Tooltip id="tooltip-top" title="Add" placement="top">
+            <Button>top</Button>
+          </Tooltip>
+          <Tooltip id="tooltip-top-end" title="Add" placement="top-end">
+            <Button>top-end</Button>
+          </Tooltip>
+        </Grid>
+      </Grid>
+      <Grid container justify="center">
+        <Grid item xs={6}>
+          <Tooltip id="tooltip-left-start" title="Add" placement="left-start">
+            <Button>left-start</Button>
+          </Tooltip>
+          <br />
+          <Tooltip id="tooltip-left" title="Add" placement="left">
+            <Button>left</Button>
+          </Tooltip>
+          <br />
+          <Tooltip id="tooltip-left-end" title="Add" placement="left-end">
+            <Button>left-end</Button>
+          </Tooltip>
+        </Grid>
+        <Grid
+          item
+          container
+          xs={6}
+          alignItems="flex-end"
+          direction="column"
+          spacing={0}
+        >
+          <Grid item>
+            <Tooltip
+              id="tooltip-right-start"
+              title="Add"
+              placement="right-start"
+            >
+              <Button>right-start</Button>
+            </Tooltip>
+          </Grid>
+          <Grid item>
+            <Tooltip id="tooltip-right" title="Add" placement="right">
+              <Button>right</Button>
+            </Tooltip>
+          </Grid>
+          <Grid item>
+            <Tooltip id="tooltip-right-end" title="Add" placement="right-end">
+              <Button>right-end</Button>
+            </Tooltip>
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid container justify="center">
+        <Grid item>
+          <Tooltip
+            id="tooltip-bottom-start"
+            title="Add"
+            placement="bottom-start"
+          >
+            <Button>bottom-start</Button>
+          </Tooltip>
+          <Tooltip id="tooltip-bottom" title="Add" placement="bottom">
+            <Button>bottom</Button>
+          </Tooltip>
+          <Tooltip id="tooltip-bottom-end" title="Add" placement="bottom-end">
+            <Button>bottom-end</Button>
+          </Tooltip>
+        </Grid>
+      </Grid>
+    </div>
+  );
 }
 
-export default Notifications;
+PositionedTooltips.propTypes = {
+  classes: PropTypes.object.isRequired
+};
+
+export default withStyles(styles)(PositionedTooltips);
