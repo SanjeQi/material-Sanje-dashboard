@@ -13,6 +13,23 @@ const dashboardStyle = {
 };
 
 // ##############################
+// // // Icons styles
+// #############################
+
+const iconsStyle = {
+  iframe: {
+    width: "100%",
+    height: "500px",
+    border: "0",
+    boxShadow:
+      "0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2)"
+  },
+  iframeContainer: {
+    margin: "0 -20px 0"
+  }
+};
+
+// ##############################
 // // // StatsCard styles
 // #############################
 
@@ -874,33 +891,98 @@ const tasksStyle = {
 };
 
 // ##############################
-// // // Default Font styles
+// // // Typography styles
 // #############################
 
-const defaultFontStyle = {
+const typographyStyle = {
   defaultFontStyle: {
     fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
     fontWeight: "300",
-    lineHeight: "1.5em"
-  }
-};
-
-// ##############################
-// // // Default Headers styles
-// #############################
-
-const defaultHeadersStyles = {
-  defaultHeadersStyles: {
-    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-    fontWeight: "300",
     lineHeight: "1.5em",
+    fontSize: "14px"
+  },
+  defaultHeaderMargins: {
     marginTop: "20px",
     marginBottom: "10px"
+  },
+  h1Style: {
+    fontSize: "3.8em"
+  },
+  h2Style: {
+    fontSize: "2.6em"
+  },
+  h3Style: {
+    fontSize: "1.825em"
+  },
+  h4Style: {
+    fontSize: "1.3em"
+  },
+  h5Style: {
+    fontSize: "1.25em"
+  },
+  h6Style: {
+    fontSize: "1em"
+  },
+  pStyle: {
+    // fontSize : '14px',
+    margin: "0 0 10px"
+  },
+  quote: {
+    padding: "10px 20px",
+    margin: "0 0 20px",
+    fontSize: "17.5px",
+    borderLeft: "5px solid #eee"
+  },
+  quoteText: {
+    margin: "0 0 10px",
+    fontStyle: "italic"
+  },
+  quoteAuthor: {
+    display: "block",
+    fontSize: "80%",
+    lineHeight: "1.42857143",
+    color: "#777"
+  },
+  mutedText: {
+    color: "#777"
+    // fontSize : '14px',
+  },
+  primaryText: {
+    color: "#9c27b0"
+    // fontSize : '14px',
+  },
+  infoText: {
+    color: "#00bcd4"
+    // fontSize : '14px',
+  },
+  successText: {
+    color: "#4caf50"
+    // fontSize : '14px',
+  },
+  warningText: {
+    color: "#ff9800"
+    // fontSize : '14px',
+  },
+  dangerText: {
+    color: "#f44336"
+    // fontSize : '14px',
+  },
+  smallText: {
+    fontSize: "65%",
+    fontWeight: "400",
+    lineHeight: "1",
+    color: "#777"
+  },
+  aStyle: {
+    color: "#FFFFFF",
+    textDecoration: "none",
+    backgroundColor: "transparent"
   }
 };
 
 module.exports = {
   dashboardStyle,
+  iconsStyle,
   statsCardStyle,
   chartCardStyle,
   tasksCardStyle,
@@ -911,6 +993,5 @@ module.exports = {
   tableStyle,
   customInputStyle,
   tasksStyle,
-  defaultFontStyle,
-  defaultHeadersStyles
+  typographyStyle
 };
