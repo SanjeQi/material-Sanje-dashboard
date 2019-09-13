@@ -6,16 +6,15 @@ import { typographyStyle } from "variables/styles";
 
 class A extends React.Component {
   render() {
-    const { classes, link, text, ...rest } = this.props;
+    const { classes, children, ...rest } = this.props;
     return (
       <a
         {...rest}
         className={
           this.props.classes.defaultFontStyle + " " + this.props.classes.aStyle
         }
-        href={this.props.link}
       >
-        {this.props.text}
+        {this.props.children}
       </a>
     );
   }
