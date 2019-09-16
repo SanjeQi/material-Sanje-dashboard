@@ -10,7 +10,7 @@ class Icons extends React.Component {
   render() {
     return (
       <Grid container>
-        <Grid item md={12}>
+        <Grid item xs={12} sm={12} md={12}>
           <RegularCard
             plainCard
             cardTitle="Material Design Icons"
@@ -37,7 +37,7 @@ class Icons extends React.Component {
                   </iframe>
                 </Hidden>
                 <Hidden only={["lg", "md"]}>
-                  <Grid item md={6}>
+                  <Grid item xs={12} sm={12} md={6}>
                     <h5>
                       The icons are visible on Desktop mode inside an iframe.
                       Since the iframe is not working on Mobile and Tablets
