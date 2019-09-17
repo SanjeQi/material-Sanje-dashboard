@@ -283,7 +283,7 @@ const chartCardStyle = {
 // // // TasksCard styles
 // #############################
 
-const tasksCardStyle = {
+const tasksCardStyle = theme => ({
   card: {
     display: "inline-block",
     position: "relative",
@@ -320,11 +320,17 @@ const tasksCardStyle = {
     display: "inline-block",
     alignItems: "inherit",
     flexDirection: "row",
-    justifyContent: "center"
+    justifyContent: "center",
+    [theme.breakpoints.down("sm")]: {
+      display: "flex"
+    }
   },
   tabIcon: {
     float: "left",
-    marginTop: "2px"
+    marginTop: "2px",
+    [theme.breakpoints.down("sm")]: {
+      marginTop: "-2px"
+    }
   },
   displayNone: {
     display: "none"
@@ -338,7 +344,10 @@ const tasksCardStyle = {
   },
   tabsContainer: {
     marginTop: "4px",
-    color: "#FFFFFF"
+    color: "#FFFFFF",
+    [theme.breakpoints.down("sm")]: {
+      display: "grid"
+    }
   },
   tabs: {
     width: "110px",
@@ -359,7 +368,7 @@ const tasksCardStyle = {
     backgroundColor: "rgba(255, 255, 255, 0.2)",
     transition: "background-color .1s .2s"
   }
-};
+});
 
 // ##############################
 // // // RegularCard styles
@@ -924,7 +933,6 @@ const typographyStyle = {
     fontSize: "1em"
   },
   pStyle: {
-    // fontSize : '14px',
     margin: "0 0 10px"
   },
   quote: {
@@ -945,27 +953,21 @@ const typographyStyle = {
   },
   mutedText: {
     color: "#777"
-    // fontSize : '14px',
   },
   primaryText: {
     color: "#9c27b0"
-    // fontSize : '14px',
   },
   infoText: {
     color: "#00bcd4"
-    // fontSize : '14px',
   },
   successText: {
     color: "#4caf50"
-    // fontSize : '14px',
   },
   warningText: {
     color: "#ff9800"
-    // fontSize : '14px',
   },
   dangerText: {
     color: "#f44336"
-    // fontSize : '14px',
   },
   smallText: {
     fontSize: "65%",
@@ -977,6 +979,83 @@ const typographyStyle = {
     color: "#FFFFFF",
     textDecoration: "none",
     backgroundColor: "transparent"
+  }
+};
+
+// ##############################
+// // // SnackbarContent styles
+// #############################
+
+const snackbarContentStyle = {
+  root: {
+    position: "relative",
+    padding: "20px 15px",
+    lineHeight: "20px",
+    marginBottom: "20px",
+    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+    fontWeight: "300",
+    fontSize: "14px",
+    backgroundColor: "white",
+    color: "#555555",
+    borderRadius: "3px",
+    boxShadow:
+      "0 12px 20px -10px rgba(255, 255, 255, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(255, 255, 255, 0.2)"
+  },
+  info: {
+    backgroundColor: "#00d3ee",
+    color: "#ffffff",
+    boxShadow:
+      "0 12px 20px -10px rgba(0, 188, 212, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(0, 188, 212, 0.2)"
+  },
+  success: {
+    backgroundColor: "#5cb860",
+    color: "#ffffff",
+    boxShadow:
+      "0 12px 20px -10px rgba(76, 175, 80, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(76, 175, 80, 0.2)"
+  },
+  warning: {
+    backgroundColor: "#ffa21a",
+    color: "#ffffff",
+    boxShadow:
+      "0 12px 20px -10px rgba(255, 152, 0, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(255, 152, 0, 0.2)"
+  },
+  danger: {
+    backgroundColor: "#f55a4e",
+    color: "#ffffff",
+    boxShadow:
+      "0 12px 20px -10px rgba(244, 67, 54, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(244, 67, 54, 0.2)"
+  },
+  primary: {
+    backgroundColor: "#af2cc5",
+    color: "#ffffff",
+    boxShadow:
+      "0 12px 20px -10px rgba(156, 39, 176, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(156, 39, 176, 0.2)"
+  },
+  message: {
+    padding: "0",
+    display: "block",
+    maxWidth: "89%"
+  },
+  close: {
+    width: "14px",
+    height: "14px"
+  },
+  iconButton: {
+    width: "24px",
+    height: "24px"
+  },
+  icon: {
+    display: "block",
+    left: "15px",
+    position: "absolute",
+    top: "50%",
+    marginTop: "-15px",
+    width: "30px",
+    height: "30px"
+  },
+  iconMessage: {
+    paddingLeft: "65px",
+    display: "block"
   }
 };
 
@@ -993,5 +1072,6 @@ module.exports = {
   tableStyle,
   customInputStyle,
   tasksStyle,
-  typographyStyle
+  typographyStyle,
+  snackbarContentStyle
 };

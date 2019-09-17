@@ -39,6 +39,13 @@ import Header from "./Header/Header.jsx";
 import Sidebar from "./Sidebar/Sidebar.jsx";
 
 // ##############################
+// // // Snackbar
+// #############################
+
+import Snackbar from "./Snackbar/Snackbar.jsx";
+import SnackbarContent from "./Snackbar/SnackbarContent.jsx";
+
+// ##############################
 // // // Table
 // #############################
 
@@ -69,6 +76,7 @@ import Success from "./Typography/Success.jsx";
 import Warning from "./Typography/Warning.jsx";
 import Danger from "./Typography/Danger.jsx";
 import Small from "./Typography/Small.jsx";
+import A from "./Typography/A.jsx";
 
 export {
   // Cards
@@ -88,6 +96,9 @@ export {
   Header,
   // Sidebar
   Sidebar,
+  //Snackbar
+  Snackbar,
+  SnackbarContent,
   // Table
   Table,
   // Tasks
@@ -107,5 +118,6 @@ export {
   Success,
   Warning,
   Danger,
-  Small
+  Small,
+  A
 };
