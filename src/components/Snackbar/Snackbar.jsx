@@ -1,11 +1,11 @@
 import React from "react";
-import { withStyles, SnackbarContent as Snack, IconButton } from "material-ui";
+import { withStyles, Snackbar as Snack, IconButton } from "material-ui";
 import { Close } from "material-ui-icons";
 import PropTypes from "prop-types";
 
 import { snackbarContentStyle } from "variables/styles";
 
-class SnackbarContent extends React.Component {
+class Snackbar extends React.Component {
   render() {
     const { classes, message, color, close, icon } = this.props;
     var action = [];
@@ -16,6 +16,7 @@ class SnackbarContent extends React.Component {
           key="close"
           aria-label="Close"
           color="inherit"
+          onClick={() => this.props.closeNotification()}
         >
           <Close className={classes.close} />
         </IconButton>
@@ -23,6 +24,16 @@ class SnackbarContent extends React.Component {
     }
     return (
       <Snack
+        anchorOrigin={{
+          vertical: this.props.place.indexOf("t") === -1 ? "bottom" : "top",
+          horizontal:
+            this.props.place.indexOf("l") !== -1
+              ? "left"
+              : this.props.place.indexOf("c") !== -1
+              ? "center"
+              : "right"
+        }}
+        open={this.props.open}
         message={
           <div>
             {icon !== undefined ? (
@@ -33,18 +44,20 @@ class SnackbarContent extends React.Component {
             </span>
           </div>
         }
-        classes={{
-          root: classes.root + " " + classes[color],
-          message: classes.message
-        }}
         action={action}
+        SnackbarContentProps={{
+          classes: {
+            root: classes.root + " " + classes[color],
+            message: classes.message
+          }
+        }}
       />
     );
   }
 }
 
-SnackbarContent.propTypes = {
+Snackbar.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(snackbarContentStyle)(SnackbarContent);
+export default withStyles(snackbarContentStyle)(Snackbar);
