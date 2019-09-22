@@ -7,7 +7,7 @@ import { snackbarContentStyle } from "variables/styles";
 
 class Snackbar extends React.Component {
   render() {
-    const { classes, message, color, close, icon } = this.props;
+    const { classes, message, color, close, icon, place, open } = this.props;
     var action = [];
     if (close !== undefined) {
       action = [
@@ -25,15 +25,15 @@ class Snackbar extends React.Component {
     return (
       <Snack
         anchorOrigin={{
-          vertical: this.props.place.indexOf("t") === -1 ? "bottom" : "top",
+          vertical: place.indexOf("t") === -1 ? "bottom" : "top",
           horizontal:
-            this.props.place.indexOf("l") !== -1
+            place.indexOf("l") !== -1
               ? "left"
-              : this.props.place.indexOf("c") !== -1
+              : place.indexOf("c") !== -1
               ? "center"
               : "right"
         }}
-        open={this.props.open}
+        open={open}
         message={
           <div>
             {icon !== undefined ? (
@@ -57,7 +57,13 @@ class Snackbar extends React.Component {
 }
 
 Snackbar.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  message: PropTypes.node.isRequired,
+  color: PropTypes.oneOf(["info", "success", "warning", "danger", "primary"]),
+  close: PropTypes.bool,
+  icon: PropTypes.func,
+  place: PropTypes.oneOf(["tl", "tr", "tc", "br", "bl", "bc"]),
+  open: PropTypes.bool
 };
 
 export default withStyles(snackbarContentStyle)(Snackbar);
