@@ -6,17 +6,18 @@ import { typographyStyle } from "variables/styles";
 
 class H2 extends React.Component {
   render() {
+    const { classes, children } = this.props;
     return (
       <h2
         className={
-          this.props.classes.defaultFontStyle +
+          classes.defaultFontStyle +
           " " +
-          this.props.classes.h2Style +
+          classes.h2Style +
           " " +
-          this.props.classes.defaultHeaderMargins
+          classes.defaultHeaderMargins
         }
       >
-        {this.props.children}
+        {children}
       </h2>
     );
   }

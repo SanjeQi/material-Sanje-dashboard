@@ -2,22 +2,22 @@ import React from "react";
 import { withStyles } from "material-ui";
 import PropTypes from "prop-types";
 
-import { defaultHeadersStyles } from "variables/styles";
-
-var h4 = defaultHeadersStyles.defaultHeadersStyles;
-
-const styles = {
-  h4,
-  style: {
-    fontSize: "1.3em"
-  }
-};
+import { typographyStyle } from "variables/styles";
 
 class H4 extends React.Component {
   render() {
+    const { classes, children } = this.props;
     return (
-      <h4 className={this.props.classes.h4 + " " + this.props.classes.style}>
-        {this.props.children}
+      <h4
+        className={
+          classes.defaultFontStyle +
+          " " +
+          classes.h4Style +
+          " " +
+          classes.defaultHeaderMargins
+        }
+      >
+        {children}
       </h4>
     );
   }
@@ -27,4 +27,4 @@ H4.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(H4);
+export default withStyles(typographyStyle)(H4);

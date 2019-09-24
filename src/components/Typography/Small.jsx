@@ -4,19 +4,19 @@ import { withStyles } from "material-ui";
 
 import { typographyStyle } from "variables/styles";
 
-class Muted extends React.Component {
+class Small extends React.Component {
   render() {
     const { classes, children } = this.props;
     return (
-      <div className={classes.defaultFontStyle + " " + classes.mutedText}>
+      <div className={classes.defaultFontStyle + " " + classes.smallText}>
         {children}
       </div>
     );
   }
 }
 
-Muted.propTypes = {
+Small.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(typographyStyle)(Muted);
+export default withStyles(typographyStyle)(Small);

@@ -2,23 +2,14 @@ import React from "react";
 import { withStyles } from "material-ui";
 import PropTypes from "prop-types";
 
-import { defaultFontStyle } from "variables/styles";
-
-var p = defaultFontStyle.defaultFontStyle;
-
-const styles = {
-  p,
-  style: {
-    fontSize: "14px",
-    margin: "0 0 10px"
-  }
-};
+import { typographyStyle } from "variables/styles";
 
 class P extends React.Component {
   render() {
+    const { classes, children } = this.props;
     return (
-      <p className={this.props.classes.p + " " + this.props.classes.style}>
-        {this.props.children}
+      <p className={classes.defaultFontStyle + " " + classes.pStyle}>
+        {children}
       </p>
     );
   }
@@ -28,4 +19,4 @@ P.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(P);
+export default withStyles(typographyStyle)(P);
