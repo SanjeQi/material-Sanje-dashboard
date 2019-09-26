@@ -146,7 +146,7 @@ class Notifications extends React.Component {
                 <Grid container>
                   <Grid item xs={12} sm={12} md={4}>
                     <Button
-                      raised
+                      fullWidth
                       color="primary"
                       onClick={() => this.showNotification("tl")}
                     >
@@ -164,7 +164,7 @@ class Notifications extends React.Component {
                   </Grid>
                   <Grid item xs={12} sm={12} md={4}>
                     <Button
-                      raised
+                      fullWidth
                       color="primary"
                       onClick={() => this.showNotification("tc")}
                     >
@@ -182,7 +182,7 @@ class Notifications extends React.Component {
                   </Grid>
                   <Grid item xs={12} sm={12} md={4}>
                     <Button
-                      raised
+                      fullWidth
                       color="primary"
                       onClick={() => this.showNotification("tr")}
                     >
@@ -206,7 +206,7 @@ class Notifications extends React.Component {
                 <Grid container>
                   <Grid item xs={12} sm={12} md={4}>
                     <Button
-                      raised
+                      fullWidth
                       color="primary"
                       onClick={() => this.showNotification("bl")}
                     >
@@ -224,7 +224,7 @@ class Notifications extends React.Component {
                   </Grid>
                   <Grid item xs={12} sm={12} md={4}>
                     <Button
-                      raised
+                      fullWidth
                       color="primary"
                       onClick={() => this.showNotification("bc")}
                     >
@@ -242,7 +242,7 @@ class Notifications extends React.Component {
                   </Grid>
                   <Grid item xs={12} sm={12} md={4}>
                     <Button
-                      raised
+                      fullWidth
                       color="primary"
                       onClick={() => this.showNotification("br")}
                     >
