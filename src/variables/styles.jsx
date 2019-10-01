@@ -93,6 +93,7 @@ const sidebarStyle = theme => ({
 
 const headerStyle = theme => ({
   appBar: {
+    top: "-20px",
     backgroundColor: "transparent",
     boxShadow: "none",
     borderBottom: "0",
@@ -122,10 +123,23 @@ const headerStyle = theme => ({
   flex: {
     flex: 1
   },
-  navIconHide: {
-    [theme.breakpoints.up("md")]: {
-      display: "none"
+  title: {
+    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+    fontWeight: "300",
+    lineHeight: "30px",
+    fontSize: "18px",
+    borderRadius: "3px",
+    textTransform: "none",
+    "&:hover,&:focus": {
+      background: "transparent"
     }
+  },
+  links: {
+    width: "20px",
+    height: "20px"
+  },
+  top: {
+    top: "-6px"
   }
 });
 
@@ -814,6 +828,13 @@ const buttonStyle = {
     color: "#FFFFFF",
     background: "transparent",
     boxShadow: "none"
+  },
+  transparent: {
+    "&,&:focus,&:hover": {
+      color: "inherit",
+      background: "transparent",
+      boxShadow: "none"
+    }
   },
   round: {
     borderRadius: "30px"

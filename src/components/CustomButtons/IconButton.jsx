@@ -6,11 +6,15 @@ import { iconButtonStyle } from "variables/styles";
 
 class IconCustomButton extends React.Component {
   render() {
-    const { classes, color, children, ...rest } = this.props;
+    const { classes, color, children, customClass, ...rest } = this.props;
     return (
       <IconButton
         {...rest}
-        className={classes.button + (color ? " " + classes[color] : "")}
+        className={
+          classes.button +
+          (color ? " " + classes[color] : "") +
+          (customClass ? " " + customClass : "")
+        }
       >
         {children}
       </IconButton>
@@ -29,7 +33,8 @@ IconCustomButton.propTypes = {
     "rose",
     "white",
     "simple"
-  ])
+  ]),
+  customClass: PropTypes.string
 };
 
 export default withStyles(iconButtonStyle)(IconCustomButton);

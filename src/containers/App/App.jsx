@@ -3,9 +3,7 @@ import PropTypes from "prop-types";
 import { withStyles } from "material-ui";
 import { Switch, Route, Redirect } from "react-router-dom";
 
-import Header from "components/Header/Header.jsx";
-import Footer from "components/Footer/Footer.jsx";
-import Sidebar from "components/Sidebar/Sidebar.jsx";
+import { Header, Footer, Sidebar } from "components";
 
 import appRoutes from "routes/app.jsx";
 
@@ -13,8 +11,7 @@ import { appStyle } from "variables/styles";
 
 class App extends React.Component {
   state = {
-    mobileOpen: false,
-    value: "recents"
+    mobileOpen: false
   };
   handleDrawerToggle = () => {
     this.setState({ mobileOpen: !this.state.mobileOpen });
