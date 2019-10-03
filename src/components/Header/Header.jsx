@@ -84,6 +84,7 @@ class Header extends React.Component {
                   onClick={this.handleClick}
                 >
                   <Notifications className={classes.links} />
+                  <span className={classes.notifications}>5</span>
                 </IconButton>
               </Target>
               <Popper
