@@ -9,6 +9,9 @@ import appRoutes from "routes/app.jsx";
 
 import { appStyle } from "variables/styles";
 
+import image from "assets/img/sidebar-1.jpg";
+import logo from "assets/img/reactlogo.png";
+
 class App extends React.Component {
   state = {
     mobileOpen: false
@@ -17,30 +20,42 @@ class App extends React.Component {
     this.setState({ mobileOpen: !this.state.mobileOpen });
   };
   render() {
-    const { classes } = this.props;
+    const { classes, ...rest } = this.props;
     return (
       <div className={classes.wrapper}>
         <Sidebar
+          routes={appRoutes}
+          logoText={"Creative Tim"}
+          logo={logo}
+          image={image}
           handleDrawerToggle={this.handleDrawerToggle}
           open={this.state.mobileOpen}
+          color="blue"
+          {...rest}
         />
         <div className={classes.mainPanel}>
-          <Header handleDrawerToggle={this.handleDrawerToggle} />
+          <Header
+            routes={appRoutes}
+            handleDrawerToggle={this.handleDrawerToggle}
+            {...rest}
+          />
 
           <div className={classes.content}>
-            <Switch>
-              {appRoutes.map((prop, key) => {
-                if (prop.redirect)
-                  return <Redirect from={prop.path} to={prop.to} key={key} />;
-                return (
-                  <Route
-                    path={prop.path}
-                    component={prop.component}
-                    key={key}
-                  />
-                );
-              })}
-            </Switch>
+            <div className={classes.container}>
+              <Switch>
+                {appRoutes.map((prop, key) => {
+                  if (prop.redirect)
+                    return <Redirect from={prop.path} to={prop.to} key={key} />;
+                  return (
+                    <Route
+                      path={prop.path}
+                      component={prop.component}
+                      key={key}
+                    />
+                  );
+                })}
+              </Switch>
+            </div>
           </div>
           <Footer />
         </div>
