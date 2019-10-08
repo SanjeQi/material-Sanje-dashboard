@@ -34,7 +34,8 @@ IconCustomButton.propTypes = {
     "white",
     "simple"
   ]),
-  customClass: PropTypes.string
+  customClass: PropTypes.string,
+  disabled: PropTypes.bool
 };
 
 export default withStyles(iconButtonStyle)(IconCustomButton);

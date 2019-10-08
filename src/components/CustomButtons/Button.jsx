@@ -33,10 +33,12 @@ RegularButton.propTypes = {
     "danger",
     "rose",
     "white",
-    "simple"
+    "simple",
+    "transparent"
   ]),
   round: PropTypes.bool,
-  fullWidth: PropTypes.bool
+  fullWidth: PropTypes.bool,
+  disabled: PropTypes.bool
 };
 
 export default withStyles(buttonStyle)(RegularButton);
