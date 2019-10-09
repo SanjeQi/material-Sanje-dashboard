@@ -1041,9 +1041,11 @@ const buttonStyle = {
     }
   },
   simple: {
-    color: "#FFFFFF",
-    background: "transparent",
-    boxShadow: "none"
+    "&,&:focus,&:hover": {
+      color: "#FFFFFF",
+      background: "transparent",
+      boxShadow: "none"
+    }
   },
   transparent: {
     "&,&:focus,&:hover": {
@@ -1054,6 +1056,10 @@ const buttonStyle = {
   },
   round: {
     borderRadius: "30px"
+  },
+  disabled: {
+    opacity: "0.65",
+    pointerEvents: "none"
   }
 };
 
@@ -1232,12 +1238,39 @@ const customInputStyle = {
       backgroundColor: primaryColor
     }
   },
+  inkbarError: {
+    "&:after": {
+      backgroundColor: dangerColor
+    }
+  },
+  inkbarSuccess: {
+    "&:after": {
+      backgroundColor: successColor
+    }
+  },
   labelRoot: {
     ...defaultFont,
     color: "#AAAAAA",
     fontWeight: "400",
     fontSize: "14px",
     lineHeight: "1.42857"
+  },
+  labelRootError: {
+    color: dangerColor
+  },
+  labelRootSuccess: {
+    color: successColor
+  },
+  feedback: {
+    position: "absolute",
+    top: "18px",
+    right: "0",
+    zIndex: "2",
+    display: "block",
+    width: "24px",
+    height: "24px",
+    textAlign: "center",
+    pointerEvents: "none"
   }
 };
 
@@ -1340,24 +1373,6 @@ const typographyStyle = {
   defaultHeaderMargins: {
     marginTop: "20px",
     marginBottom: "10px"
-  },
-  h1Style: {
-    fontSize: "3.8em"
-  },
-  h2Style: {
-    fontSize: "2.6em"
-  },
-  h3Style: {
-    fontSize: "1.825em"
-  },
-  h4Style: {
-    fontSize: "1.3em"
-  },
-  h5Style: {
-    fontSize: "1.25em"
-  },
-  h6Style: {
-    fontSize: "1em"
   },
   pStyle: {
     margin: "0 0 10px"

@@ -1,5 +1,6 @@
 import React from "react";
 import { withStyles, FormControl, InputLabel, Input } from "material-ui";
+import { Clear, Check } from "material-ui-icons";
 import PropTypes from "prop-types";
 
 import { customInputStyle } from "variables/styles";
@@ -12,14 +13,22 @@ class CustomInput extends React.Component {
       labelText,
       id,
       labelProps,
-      inputProps
+      inputProps,
+      error,
+      success
     } = this.props;
     return (
       <FormControl {...formControlProps}>
         {labelText !== undefined ? (
           <InputLabel
             classes={{
-              root: classes.labelRoot
+              root:
+                classes.labelRoot +
+                (error
+                  ? " " + classes.labelRootError
+                  : success
+                  ? " " + classes.labelRootSuccess
+                  : "")
             }}
             htmlFor={id}
             {...labelProps}
@@ -31,11 +40,22 @@ class CustomInput extends React.Component {
           classes={{
             disabled: classes.disabled,
             underline: classes.underline,
-            inkbar: classes.inkbar
+            inkbar: error
+              ? classes.inkbarError
+              : success
+              ? classes.inkbarSuccess
+              : classes.inkbar
           }}
           id={id}
           {...inputProps}
         />
+        {error ? (
+          <Clear className={classes.feedback + " " + classes.labelRootError} />
+        ) : success ? (
+          <Check
+            className={classes.feedback + " " + classes.labelRootSuccess}
+          />
+        ) : null}
       </FormControl>
     );
   }
@@ -47,7 +67,9 @@ CustomInput.propTypes = {
   labelProps: PropTypes.object,
   id: PropTypes.string,
   inputProps: PropTypes.object,
-  formControlProps: PropTypes.object
+  formControlProps: PropTypes.object,
+  error: PropTypes.bool,
+  success: PropTypes.bool
 };
 
 export default withStyles(customInputStyle)(CustomInput);
