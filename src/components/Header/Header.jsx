@@ -41,9 +41,13 @@ class Header extends React.Component {
     return name;
   }
   render() {
-    const { classes } = this.props;
+    const { classes, color } = this.props;
     return (
-      <AppBar className={classes.appBar} color="default">
+      <AppBar
+        className={
+          classes.appBar + (color !== undefined ? " " + classes[color] : "")
+        }
+      >
         <Toolbar className={classes.container}>
           <div className={classes.flex}>
             {/* Here we create navbar brand, based on route name */}
@@ -71,7 +75,8 @@ class Header extends React.Component {
 
 Header.propTypes = {
   classes: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired
+  theme: PropTypes.object.isRequired,
+  color: PropTypes.oneOf(["primary", "info", "success", "warning", "danger"])
 };
 
 export default withStyles(headerStyle, { withTheme: true })(Header);
