@@ -33,7 +33,7 @@ class StatsCard extends React.Component {
           avatar={<this.props.icon className={classes.cardIcon} />}
         />
         <CardContent className={classes.cardContent}>
-          <Typography type="subheading" className={classes.cardCategory}>
+          <Typography component="p" className={classes.cardCategory}>
             {title}
           </Typography>
           <Typography

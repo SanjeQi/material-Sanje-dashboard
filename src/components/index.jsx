@@ -1,6 +1,7 @@
 // ##############################
 // // // Cards
 // #############################
+
 import ChartCard from "./Cards/ChartCard.jsx";
 import ProfileCard from "./Cards/ProfileCard.jsx";
 import RegularCard from "./Cards/RegularCard.jsx";
@@ -25,6 +26,12 @@ import CustomInput from "./CustomInput/CustomInput.jsx";
 // #############################
 
 import Footer from "./Footer/Footer.jsx";
+
+// ##############################
+// // // Grid
+// #############################
+
+import ItemGrid from "./Grid/ItemGrid.jsx";
 
 // ##############################
 // // // Header
@@ -62,12 +69,6 @@ import Tasks from "./Tasks/Tasks.jsx";
 // // // Typography
 // #############################
 
-import H1 from "./Typography/H1.jsx";
-import H2 from "./Typography/H2.jsx";
-import H3 from "./Typography/H3.jsx";
-import H4 from "./Typography/H4.jsx";
-import H5 from "./Typography/H5.jsx";
-import H6 from "./Typography/H6.jsx";
 import P from "./Typography/P.jsx";
 import Quote from "./Typography/Quote.jsx";
 import Muted from "./Typography/Muted.jsx";
@@ -93,6 +94,8 @@ export {
   CustomInput,
   // Footer
   Footer,
+  // Grid
+  ItemGrid,
   // Header
   Header,
   HeaderLinks,
@@ -106,12 +109,6 @@ export {
   // Tasks
   Tasks,
   // Typography
-  H1,
-  H2,
-  H3,
-  H4,
-  H5,
-  H6,
   P,
   Quote,
   Muted,

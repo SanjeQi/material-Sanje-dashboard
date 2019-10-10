@@ -105,6 +105,19 @@ const cardHeader = {
   padding: "15px"
 };
 
+const defaultBoxShadow = {
+  border: "0",
+  borderRadius: "3px",
+  boxShadow:
+    "0 10px 20px -12px rgba(0, 0, 0, 0.42), 0 3px 20px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2)",
+  padding: "10px 0",
+  WebkitTransition: "all 150ms ease 0s",
+  MozTransition: "all 150ms ease 0s",
+  OTransition: "all 150ms ease 0s",
+  MsTransition: "all 150ms ease 0s",
+  transition: "all 150ms ease 0s"
+};
+
 // ##############################
 // // // App styles
 // #############################
@@ -384,6 +397,31 @@ const headerStyle = theme => ({
     "&:hover,&:focus": {
       background: "transparent"
     }
+  },
+  primary: {
+    backgroundColor: primaryColor,
+    color: "#FFFFFF",
+    ...defaultBoxShadow
+  },
+  info: {
+    backgroundColor: infoColor,
+    color: "#FFFFFF",
+    ...defaultBoxShadow
+  },
+  success: {
+    backgroundColor: successColor,
+    color: "#FFFFFF",
+    ...defaultBoxShadow
+  },
+  warning: {
+    backgroundColor: warningColor,
+    color: "#FFFFFF",
+    ...defaultBoxShadow
+  },
+  danger: {
+    backgroundColor: dangerColor,
+    color: "#FFFFFF",
+    ...defaultBoxShadow
   }
 });
 
@@ -1271,6 +1309,9 @@ const customInputStyle = {
     height: "24px",
     textAlign: "center",
     pointerEvents: "none"
+  },
+  marginTop: {
+    marginTop: "16px"
   }
 };
 

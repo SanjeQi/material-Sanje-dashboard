@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { List, ListItem, ListItemText, withStyles } from "material-ui";
+import { List, ListItem, withStyles } from "material-ui";
 
 import { footerStyle } from "variables/styles";
 
@@ -9,47 +9,33 @@ class Footer extends React.Component {
     const { classes } = this.props;
     return (
       <footer className={classes.footer}>
-        <div className={classes.fluid}>
+        <div className={classes.container}>
           <div className={classes.left}>
             <List className={classes.list}>
               <ListItem className={classes.inlineBlock}>
-                <ListItemText
-                  primary="Home"
-                  className={classes.block}
-                  disableTypography={true}
-                />
+                <a href="#home" className={classes.block}>
+                  Home
+                </a>
               </ListItem>
               <ListItem className={classes.inlineBlock}>
-                <ListItemText
-                  primary="Company"
-                  className={classes.block}
-                  disableTypography={true}
-                />
+                <a href="#company" className={classes.block}>
+                  Company
+                </a>
               </ListItem>
               <ListItem className={classes.inlineBlock}>
-                <ListItemText
-                  primary="Portfolio"
-                  className={classes.block}
-                  disableTypography={true}
-                />
+                <a href="#portfolio" className={classes.block}>
+                  Portfolio
+                </a>
               </ListItem>
               <ListItem className={classes.inlineBlock}>
-                <ListItemText
-                  primary="Blog"
-                  className={classes.block}
-                  disableTypography={true}
-                />
+                <a href="#blog" className={classes.block}>
+                  Blog
+                </a>
               </ListItem>
             </List>
           </div>
           <p className={classes.right}>
-            <span>
-              &copy; {1900 + new Date().getYear()}{" "}
-              <a href="http://www.creative-tim.com" className={classes.a}>
-                Creative Tim
-              </a>
-              , made with love for a better web
-            </span>
+            <span>&copy; {1900 + new Date().getYear()} </span>
           </p>
         </div>
       </footer>
