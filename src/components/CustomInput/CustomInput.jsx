@@ -18,7 +18,10 @@ class CustomInput extends React.Component {
       success
     } = this.props;
     return (
-      <FormControl {...formControlProps}>
+      <FormControl
+        {...formControlProps}
+        className={formControlProps.className + " " + classes.formControl}
+      >
         {labelText !== undefined ? (
           <InputLabel
             classes={{
@@ -38,6 +41,7 @@ class CustomInput extends React.Component {
         ) : null}
         <Input
           classes={{
+            root: labelText !== undefined ? "" : classes.marginTop,
             disabled: classes.disabled,
             underline: classes.underline,
             inkbar: error

@@ -143,7 +143,10 @@ const appStyle = theme => ({
     padding: "30px 15px",
     minHeight: "calc(100% - 123px)"
   },
-  container
+  container,
+  map: {
+    marginTop: "70px"
+  }
 });
 
 // ##############################
@@ -288,7 +291,7 @@ const sidebarStyle = theme => ({
     ...defaultFont
   },
   itemIcon: {
-    width: "30px",
+    width: "24px",
     height: "30px",
     float: "left",
     marginRight: "15px",
@@ -362,7 +365,7 @@ const sidebarStyle = theme => ({
 
 const headerStyle = theme => ({
   appBar: {
-    top: "-7px",
+    top: "-30px",
     backgroundColor: "transparent",
     boxShadow: "none",
     borderBottom: "0",
@@ -394,6 +397,7 @@ const headerStyle = theme => ({
     borderRadius: "3px",
     textTransform: "none",
     color: "inherit",
+    top: "10px",
     "&:hover,&:focus": {
       background: "transparent"
     }
@@ -468,8 +472,7 @@ const headerLinksStyle = theme => ({
     zIndex: "4"
   },
   searchIcon: {
-    width: "20px",
-    height: "20px",
+    width: "17px",
     zIndex: "4"
   },
   links: {
@@ -575,9 +578,7 @@ const footerStyle = {
     borderRadius: "3px",
     textDecoration: "none",
     position: "relative",
-    display: "block"
-  },
-  text: {
+    display: "block",
     ...defaultFont,
     fontWeight: "500",
     fontSize: "12px"
@@ -589,6 +590,7 @@ const footerStyle = {
   right: {
     padding: "15px 0",
     margin: "0",
+    fontSize: "14px",
     float: "right!important"
   },
   footer: {
@@ -690,12 +692,16 @@ const statsCardStyle = {
     lineHeight: "1",
     color: "#777"
   },
-  cardActions,
+  cardActions: {
+    ...cardActions,
+    padding: "0!important"
+  },
   cardStats: {
     lineHeight: "22px",
     color: grayColor,
     fontSize: "12px",
-    display: "inline-block"
+    display: "inline-block",
+    margin: "0!important"
   },
   cardStatsIcon: {
     position: "relative",
@@ -763,12 +769,16 @@ const chartCardStyle = {
     ...defaultFont,
     fontSize: "0.9em"
   },
-  cardActions,
+  cardActions: {
+    ...cardActions,
+    padding: "0!important"
+  },
   cardStats: {
     lineHeight: "22px",
     color: grayColor,
     fontSize: "12px",
-    display: "inline-block"
+    display: "inline-block",
+    margin: "0!important"
   },
   cardStatsIcon: {
     position: "relative",
@@ -894,6 +904,10 @@ const regularCardStyle = {
     ...cardHeader,
     ...defaultFont
   },
+  cardPlainHeader: {
+    marginLeft: 0,
+    marginRight: 0
+  },
   orangeCardHeader,
   greenCardHeader,
   redCardHeader,
@@ -904,7 +918,7 @@ const regularCardStyle = {
     marginTop: "0",
     marginBottom: "5px",
     ...defaultFont,
-    fontSize: "1.3em"
+    fontSize: "1.125em"
   },
   cardSubtitle: {
     ...defaultFont,
@@ -1114,6 +1128,8 @@ const iconButtonStyle = {
     fontSize: "24px",
     margin: "auto",
     padding: "0",
+    boxShadow:
+      "0 2px 2px 0 rgba(153, 153, 153, 0.14), 0 3px 1px -2px rgba(153, 153, 153, 0.2), 0 1px 5px 0 rgba(153, 153, 153, 0.12)",
     overflow: "hidden",
     position: "relative",
     lineHeight: "normal",
@@ -1247,9 +1263,7 @@ const tableStyle = {
     borderCollapse: "collapse"
   },
   tableCell: {
-    ...defaultFont,
     lineHeight: "1.42857143",
-    fontSize: "14px",
     padding: "12px 8px",
     verticalAlign: "middle"
   }
@@ -1312,6 +1326,11 @@ const customInputStyle = {
   },
   marginTop: {
     marginTop: "16px"
+  },
+  formControl: {
+    paddingBottom: "10px",
+    margin: "27px 0 0 0",
+    position: "relative"
   }
 };
 
@@ -1335,7 +1354,7 @@ const tasksStyle = {
   },
   tableCell: {
     ...defaultFont,
-    padding: "12px 8px",
+    padding: "8px",
     verticalAlign: "middle",
     border: "none",
     lineHeight: "1.42857143",
@@ -1366,7 +1385,8 @@ const tasksStyle = {
     width: "20px",
     height: "20px",
     border: "1px solid rgba(0, 0, 0, .54)",
-    borderRadius: "3px"
+    borderRadius: "3px",
+    position: "absolute"
   },
   uncheckedIcon: {
     width: "0px",
@@ -1459,9 +1479,11 @@ const typographyStyle = {
     color: "#777"
   },
   aStyle: {
-    color: "#FFFFFF",
     textDecoration: "none",
-    backgroundColor: "transparent"
+    backgroundColor: "transparent",
+    "&,&:hover": {
+      color: "#FFFFFF"
+    }
   }
 };
 

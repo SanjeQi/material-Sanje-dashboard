@@ -2,7 +2,7 @@ import React from "react";
 import { withStyles, Grid, Hidden } from "material-ui";
 import PropTypes from "prop-types";
 
-import { RegularCard, P, A } from "components";
+import { RegularCard, P, A, ItemGrid } from "components";
 
 import { iconsStyle } from "variables/styles";
 
@@ -10,7 +10,7 @@ class Icons extends React.Component {
   render() {
     return (
       <Grid container>
-        <Grid item xs={12} sm={12} md={12}>
+        <ItemGrid xs={12} sm={12} md={12}>
           <RegularCard
             plainCard
             cardTitle="Material Design Icons"
@@ -18,11 +18,12 @@ class Icons extends React.Component {
               <P>
                 Handcrafted by our friends from{" "}
                 <A
-                  text="Google"
-                  link="https://design.google.com/icons/"
+                  href="https://design.google.com/icons/"
                   target="_blank"
                   rel="noopener noreferrer"
-                />
+                >
+                  Google
+                </A>
               </P>
             }
             content={
@@ -37,7 +38,7 @@ class Icons extends React.Component {
                   </iframe>
                 </Hidden>
                 <Hidden only={["lg", "md"]}>
-                  <Grid item xs={12} sm={12} md={6}>
+                  <ItemGrid xs={12} sm={12} md={6}>
                     <h5>
                       The icons are visible on Desktop mode inside an iframe.
                       Since the iframe is not working on Mobile and Tablets
@@ -51,12 +52,12 @@ class Icons extends React.Component {
                         Material Icons
                       </a>
                     </h5>
-                  </Grid>
+                  </ItemGrid>
                 </Hidden>
               </div>
             }
           />
-        </Grid>
+        </ItemGrid>
       </Grid>
     );
   }
