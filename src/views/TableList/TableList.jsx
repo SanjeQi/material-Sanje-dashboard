@@ -1,13 +1,13 @@
 import React from "react";
 import { Grid } from "material-ui";
 
-import { RegularCard, Table } from "components";
+import { RegularCard, Table, ItemGrid } from "components";
 
 class TableList extends React.Component {
   render() {
     return (
       <Grid container>
-        <Grid item xs={12} sm={12} md={12}>
+        <ItemGrid xs={12} sm={12} md={12}>
           <RegularCard
             cardTitle="Simple Table"
             cardSubtitle="Here is a subtitle for this table"
@@ -31,8 +31,8 @@ class TableList extends React.Component {
               />
             }
           />
-        </Grid>
-        <Grid item xs={12} sm={12} md={12}>
+        </ItemGrid>
+        <ItemGrid xs={12} sm={12} md={12}>
           <RegularCard
             plainCard
             cardTitle="Table on Plain Background"
@@ -64,7 +64,7 @@ class TableList extends React.Component {
               />
             }
           />
-        </Grid>
+        </ItemGrid>
       </Grid>
     );
   }
