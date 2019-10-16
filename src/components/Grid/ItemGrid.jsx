@@ -7,15 +7,13 @@ const style = {
   }
 };
 
-class ItemGrid extends React.Component {
-  render() {
-    const { classes, children, ...rest } = this.props;
-    return (
-      <Grid item {...rest} className={classes.grid}>
-        {children}
-      </Grid>
-    );
-  }
+function ItemGrid({ ...props }) {
+  const { classes, children, ...rest } = props;
+  return (
+    <Grid item {...rest} className={classes.grid}>
+      {children}
+    </Grid>
+  );
 }
 
 export default withStyles(style)(ItemGrid);

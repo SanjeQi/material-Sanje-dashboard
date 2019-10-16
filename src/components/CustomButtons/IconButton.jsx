@@ -2,24 +2,22 @@ import React from "react";
 import { withStyles, IconButton } from "material-ui";
 import PropTypes from "prop-types";
 
-import { iconButtonStyle } from "variables/styles";
+import iconButtonStyle from "variables/styles/iconButtonStyle";
 
-class IconCustomButton extends React.Component {
-  render() {
-    const { classes, color, children, customClass, ...rest } = this.props;
-    return (
-      <IconButton
-        {...rest}
-        className={
-          classes.button +
-          (color ? " " + classes[color] : "") +
-          (customClass ? " " + customClass : "")
-        }
-      >
-        {children}
-      </IconButton>
-    );
-  }
+function IconCustomButton({ ...props }) {
+  const { classes, color, children, customClass, ...rest } = props;
+  return (
+    <IconButton
+      {...rest}
+      className={
+        classes.button +
+        (color ? " " + classes[color] : "") +
+        (customClass ? " " + customClass : "")
+      }
+    >
+      {children}
+    </IconButton>
+  );
 }
 
 IconCustomButton.propTypes = {

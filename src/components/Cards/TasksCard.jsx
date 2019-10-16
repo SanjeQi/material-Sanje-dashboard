@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {
   withStyles,
   Card,
@@ -9,13 +10,12 @@ import {
   Tab
 } from "material-ui";
 import { BugReport, Code, Cloud } from "material-ui-icons";
-import PropTypes from "prop-types";
 
 import { Tasks } from "components";
 
 import { bugs, website, server } from "variables/general";
 
-import { tasksCardStyle } from "variables/styles";
+import tasksCardStyle from "variables/styles/tasksCardStyle";
 
 class TasksCard extends React.Component {
   state = {
