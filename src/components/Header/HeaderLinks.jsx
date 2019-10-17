@@ -1,6 +1,6 @@
 import React from "react";
-import { Person, Notifications, Dashboard, Search } from "material-ui-icons";
 import classNames from "classnames";
+import { Manager, Target, Popper } from "react-popper";
 import {
   withStyles,
   IconButton,
@@ -11,11 +11,11 @@ import {
   ClickAwayListener,
   Hidden
 } from "material-ui";
-import { Manager, Target, Popper } from "react-popper";
+import { Person, Notifications, Dashboard, Search } from "material-ui-icons";
 
 import { CustomInput, IconButton as SearchButton } from "components";
 
-import { headerLinksStyle } from "variables/styles";
+import headerLinksStyle from "variables/styles/headerLinksStyle";
 
 class HeaderLinks extends React.Component {
   state = {
