@@ -7,14 +7,15 @@ import {
   TableBody,
   TableCell
 } from "material-ui";
+
 import PropTypes from "prop-types";
 
-import { tableStyle } from "variables/styles";
+import tableStyle from "variables/styles/tableStyle";
 
-class CustomTable extends React.Component {
-  render() {
-    const { classes, tableHead, tableData, tableHeaderColor } = this.props;
-    return (
+function CustomTable({ ...props }) {
+  const { classes, tableHead, tableData, tableHeaderColor } = props;
+  return (
+    <div className={classes.tableResponsive}>
       <Table className={classes.table}>
         {tableHead !== undefined ? (
           <TableHead className={classes[tableHeaderColor + "TableHeader"]}>
@@ -48,8 +49,8 @@ class CustomTable extends React.Component {
           })}
         </TableBody>
       </Table>
-    );
-  }
+    </div>
+  );
 }
 
 CustomTable.defaultProps = {
