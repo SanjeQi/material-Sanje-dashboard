@@ -10,9 +10,10 @@ import {
   Tooltip
 } from "material-ui";
 import { Edit, Close, Check } from "material-ui-icons";
+
 import PropTypes from "prop-types";
 
-import { tasksStyle } from "variables/styles";
+import tasksStyle from "variables/styles/tasksStyle.jsx";
 
 class Tasks extends React.Component {
   state = {
@@ -48,8 +49,7 @@ class Tasks extends React.Component {
                   checkedIcon={<Check className={classes.checkedIcon} />}
                   icon={<Check className={classes.uncheckedIcon} />}
                   classes={{
-                    checked: classes.checked,
-                    default: classes.button
+                    checked: classes.checked
                   }}
                 />
               </TableCell>
