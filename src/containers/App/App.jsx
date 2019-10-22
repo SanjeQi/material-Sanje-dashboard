@@ -1,17 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { withStyles } from "material-ui";
 import { Switch, Route, Redirect } from "react-router-dom";
+// creates a beautiful scrollbar
 import PerfectScrollbar from "perfect-scrollbar";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
+import { withStyles } from "material-ui";
 
 import { Header, Footer, Sidebar } from "components";
 
 import appRoutes from "routes/app.jsx";
 
-import { appStyle } from "variables/styles";
+import appStyle from "variables/styles/appStyle.jsx";
 
-import image from "assets/img/sidebar-1.jpg";
+import image from "assets/img/sidebar-2.jpg";
 import logo from "assets/img/reactlogo.png";
 
 const switchRoutes = (
@@ -35,7 +36,10 @@ class App extends React.Component {
     return this.props.location.pathname !== "/maps";
   }
   componentDidMount() {
-    const ps = new PerfectScrollbar(this.refs.mainPanel);
+    if (window.innerWidth > 991) {
+      // eslint-disable-next-line
+      const ps = new PerfectScrollbar(this.refs.mainPanel);
+    }
   }
   componentDidUpdate() {
     this.refs.mainPanel.scrollTop = 0;
@@ -76,8 +80,7 @@ class App extends React.Component {
 }
 
 App.propTypes = {
-  classes: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired
 };
 
-export default withStyles(appStyle, { withTheme: true })(App);
+export default withStyles(appStyle)(App);

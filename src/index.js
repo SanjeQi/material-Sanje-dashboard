@@ -3,9 +3,7 @@ import ReactDOM from "react-dom";
 import { createBrowserHistory } from "history";
 import { Router, Route, Switch } from "react-router-dom";
 
-import "assets/css/bootstrap.min.css";
-import "assets/css/demo.css";
-import "assets/sass/material-dashboard.scss";
+import "assets/css/material-dashboard-react.css";
 
 import indexRoutes from "routes/index.jsx";
 

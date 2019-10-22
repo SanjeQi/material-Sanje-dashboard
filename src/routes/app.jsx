@@ -19,7 +19,7 @@ import {
 const appRoutes = [
   {
     path: "/dashboard",
-    sidebarName: "Material Dashboard",
+    sidebarName: "Dashboard",
     navbarName: "Material Dashboard",
     icon: Dashboard,
     component: DashboardPage
@@ -66,7 +66,7 @@ const appRoutes = [
     icon: Notifications,
     component: NotificationsPage
   },
-  { redirect: true, path: "/", to: "/dashboard" }
+  { redirect: true, path: "/", to: "/dashboard", navbarName: "Redirect" }
 ];
 
 export default appRoutes;
