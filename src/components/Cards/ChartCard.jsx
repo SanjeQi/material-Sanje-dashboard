@@ -1,15 +1,14 @@
 import React from "react";
-import {
-  withStyles,
-  Card,
-  CardContent,
-  CardHeader,
-  CardActions,
-  Typography
-} from "material-ui";
 import PropTypes from "prop-types";
-
-import chartCardStyle from "variables/styles/chartCardStyle";
+// @material-ui/core components
+import withStyles from "@material-ui/core/styles/withStyles";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import CardHeader from "@material-ui/core/CardHeader";
+import CardActions from "@material-ui/core/CardActions";
+import Typography from "@material-ui/core/Typography";
+// core components
+import chartCardStyle from "assets/jss/material-dashboard-react/chartCardStyle";
 
 function ChartCard({ ...props }) {
   const {
@@ -31,7 +30,11 @@ function ChartCard({ ...props }) {
         subheader={chart}
       />
       <CardContent className={classes.cardContent}>
-        <Typography type="title" component="h4" className={classes.cardTitle}>
+        <Typography
+          variant="title"
+          component="h4"
+          className={classes.cardTitle}
+        >
           {title}
         </Typography>
         <Typography component="p" className={classes.cardCategory}>

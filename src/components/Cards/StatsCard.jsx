@@ -1,15 +1,14 @@
 import React from "react";
-import {
-  withStyles,
-  Card,
-  CardContent,
-  CardHeader,
-  CardActions,
-  Typography
-} from "material-ui";
 import PropTypes from "prop-types";
-
-import statsCardStyle from "variables/styles/statsCardStyle";
+// @material-ui/core components
+import withStyles from "@material-ui/core/styles/withStyles";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import CardHeader from "@material-ui/core/CardHeader";
+import CardActions from "@material-ui/core/CardActions";
+import Typography from "@material-ui/core/Typography";
+// core components
+import statsCardStyle from "assets/jss/material-dashboard-react/statsCardStyle";
 
 function StatsCard({ ...props }) {
   const {
@@ -36,7 +35,7 @@ function StatsCard({ ...props }) {
           {title}
         </Typography>
         <Typography
-          type="headline"
+          variant="headline"
           component="h2"
           className={classes.cardTitle}
         >
