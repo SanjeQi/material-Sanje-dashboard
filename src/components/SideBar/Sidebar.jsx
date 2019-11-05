@@ -1,20 +1,19 @@
 import React from "react";
+import classNames from "classnames";
 import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
-import cx from "classnames";
-import {
-  withStyles,
-  Drawer,
-  Hidden,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText
-} from "material-ui";
+// @material-ui/core components
+import withStyles from "@material-ui/core/styles/withStyles";
+import Drawer from "@material-ui/core/Drawer";
+import Hidden from "@material-ui/core/Hidden";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+// core components
+import HeaderLinks from "components/Header/HeaderLinks.jsx";
 
-import { HeaderLinks } from "components";
-
-import sidebarStyle from "variables/styles/sidebarStyle.jsx";
+import sidebarStyle from "assets/jss/material-dashboard-react/sidebarStyle.jsx";
 
 const Sidebar = ({ ...props }) => {
   // verifies if routeName is the one active (in browser input)
@@ -26,10 +25,10 @@ const Sidebar = ({ ...props }) => {
     <List className={classes.list}>
       {routes.map((prop, key) => {
         if (prop.redirect) return null;
-        const listItemClasses = cx({
+        const listItemClasses = classNames({
           [" " + classes[color]]: activeRoute(prop.path)
         });
-        const whiteFontClasses = cx({
+        const whiteFontClasses = classNames({
           [" " + classes.whiteFont]: activeRoute(prop.path)
         });
         return (
@@ -68,7 +67,7 @@ const Sidebar = ({ ...props }) => {
     <div>
       <Hidden mdUp>
         <Drawer
-          type="temporary"
+          variant="temporary"
           anchor="right"
           open={props.open}
           classes={{
@@ -95,7 +94,7 @@ const Sidebar = ({ ...props }) => {
       <Hidden smDown>
         <Drawer
           anchor="left"
-          type="permanent"
+          variant="permanent"
           open
           classes={{
             paper: classes.drawerPaper

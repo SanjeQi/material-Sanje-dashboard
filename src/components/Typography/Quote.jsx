@@ -1,8 +1,9 @@
 import React from "react";
-import { withStyles } from "material-ui";
 import PropTypes from "prop-types";
-
-import typographyStyle from "variables/styles/typographyStyle.jsx";
+// @material-ui/core components
+import withStyles from "@material-ui/core/styles/withStyles";
+// core components
+import typographyStyle from "assets/jss/material-dashboard-react/typographyStyle.jsx";
 
 function Quote({ ...props }) {
   const { classes, text, author } = props;

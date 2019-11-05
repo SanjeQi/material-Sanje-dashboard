@@ -1,21 +1,25 @@
 import React from "react";
 import classNames from "classnames";
 import { Manager, Target, Popper } from "react-popper";
-import {
-  withStyles,
-  IconButton,
-  MenuItem,
-  MenuList,
-  Grow,
-  Paper,
-  ClickAwayListener,
-  Hidden
-} from "material-ui";
-import { Person, Notifications, Dashboard, Search } from "material-ui-icons";
+// @material-ui/core components
+import withStyles from "@material-ui/core/styles/withStyles";
+import IconButton from "@material-ui/core/IconButton";
+import MenuItem from "@material-ui/core/MenuItem";
+import MenuList from "@material-ui/core/MenuList";
+import Grow from "@material-ui/core/Grow";
+import Paper from "@material-ui/core/Paper";
+import ClickAwayListener from "@material-ui/core/ClickAwayListener";
+import Hidden from "@material-ui/core/Hidden";
+// @material-ui/icons
+import Person from "@material-ui/icons/Person";
+import Notifications from "@material-ui/icons/Notifications";
+import Dashboard from "@material-ui/icons/Dashboard";
+import Search from "@material-ui/icons/Search";
+// core components
+import CustomInput from "components/CustomInput/CustomInput.jsx";
+import SearchButton from "components/CustomButtons/IconButton.jsx";
 
-import { CustomInput, IconButton as SearchButton } from "components";
-
-import headerLinksStyle from "variables/styles/headerLinksStyle";
+import headerLinksStyle from "assets/jss/material-dashboard-react/headerLinksStyle";
 
 class HeaderLinks extends React.Component {
   state = {
@@ -35,7 +39,7 @@ class HeaderLinks extends React.Component {
       <div>
         <CustomInput
           formControlProps={{
-            className: classes.top + " " + classes.search
+            className: classes.margin + " " + classes.search
           }}
           inputProps={{
             placeholder: "Search",
@@ -47,7 +51,7 @@ class HeaderLinks extends React.Component {
         <SearchButton
           color="white"
           aria-label="edit"
-          customClass={classes.top + " " + classes.searchButton}
+          customClass={classes.margin + " " + classes.searchButton}
         >
           <Search className={classes.searchIcon} />
         </SearchButton>
